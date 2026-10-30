@@ -40,7 +40,7 @@ of a BEST-EFFORT limiter, never guarantees.
 | G1a | signed-in user | provider sleeps 2000 ms, proxy timeout 600 ms | 400 · PROVIDER_TIMEOUT | our envelope naming timeoutMs; no partial body | row outcome=timeout with conservative cap pricing — usage IS still recorded |
 | G1b | signed-in user | provider sends headers immediately, body after 2000 ms (timeout 600 ms) | 400 · PROVIDER_TIMEOUT | same mapped envelope as the no-answer case | row outcome=timeout |
 | H1a | signed-in user | askLlm({stream:true}) with [[sim:out:20]] [[sim:tps:20]] | 200 ·  | single JSON payload; first usable output = full completion | provider request carried no stream flag (see T8); one ok row |
-| H1b | direct caller (what the proxy gives up) | POST /v1/messages stream:true with [[sim:out:20]] [[sim:tps:20]] against the simulator | 200 ·  | SSE: first delta at 54 ms, message_stop at 1027 ms; same final text and usage as non-streaming | no backend involved (direct provider leg of the comparison) |
+| H1b | direct caller (what the proxy gives up) | POST /v1/messages stream:true with [[sim:out:20]] [[sim:tps:20]] against the simulator | 200 ·  | SSE: first delta at 54 ms, message_stop at 1028 ms; same final text and usage as non-streaming | no backend involved (direct provider leg of the comparison) |
 
 ## Live-only rows (not measured locally, by design)
 
@@ -51,4 +51,4 @@ of a BEST-EFFORT limiter, never guarantees.
 | §6.1 latency legs (a)/(b)/(c), §6.4 token costs, §6.6 quota math (H7) | real vantage, region, plan, model and PRICES VERIFIED ON THE DAY — placeholders are never published |
 | T10 with a real throwaway key (only if the owner wants the direct "before" call shown) | key creation/revocation logged in the evidence file; the canary extraction above already proves extractability |
 
-Suites in this run: positive, matrix, extraction, race, failure, streaming · 31 matrix rows recorded at 2026-10-30T14:00:52.281Z.
+Suites in this run: positive, matrix, extraction, race, failure, streaming · 31 matrix rows recorded at 2026-10-30T14:06:45.411Z.

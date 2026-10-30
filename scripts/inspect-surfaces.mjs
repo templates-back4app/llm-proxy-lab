@@ -35,11 +35,14 @@ const KNOWN_SYNTHETIC = [config.CANARY_KEY, config.LLM_API_KEY].filter((k) => k 
 // reports a hit can never itself become a hit on the next scan.
 const redact = (s) => s.slice(0, 7) + '✂…✂' + s.slice(-6) + ' (' + s.length + ' chars)';
 
-/** Scan one text: returns { keyHits: [{value, kind}], headerHits: n }. */
+/** Scan one text: returns { keyHits: [{value, kind}], headerHits: n }. A hit is `synthetic-known` when it IS
+ * one of the committed synthetic values or a truncated prefix of one (docs quote the canary as
+ * `sk-ant-api03-CANARY-…`); anything else is UNKNOWN and always a failure. */
 export function scanText(text) {
   const keyHits = [];
   for (const m of String(text).matchAll(KEY_SHAPE)) {
-    keyHits.push({ value: m[0], kind: KNOWN_SYNTHETIC.includes(m[0]) ? 'synthetic-known' : 'UNKNOWN' });
+    const known = KNOWN_SYNTHETIC.some((k) => k === m[0] || k.startsWith(m[0]));
+    keyHits.push({ value: m[0], kind: known ? 'synthetic-known' : 'UNKNOWN' });
   }
   const headerHits = (String(text).match(HEADER_NAME) || []).length;
   return { keyHits, headerHits };

@@ -9,12 +9,16 @@ Hits are classified `synthetic-known` (the committed canary/placeholder, present
 |---|---|---|---|---|
 | dist/default/app.bundle.js | yes | 2724 | 0 | 0 |
 | dist/default/app.bundle.js.map | yes | 2775 | 0 | 0 |
-| dist/default/config.js | yes | 140 | 0 | 0 |
+| dist/default/config.js | yes | 141 | 0 | 0 |
 | dist/default/index.html | yes | 1326 | 0 | 0 |
-| logs/parse-server.err.2026-10-30 | no | 100556 | 0 | 0 |
-| logs/parse-server.info.2026-10-30 | no | 109372 | 0 | 0 |
-| docs/evidence/.rows-local.jsonl | no | 11478 | 0 | 1 |
-| docs/evidence/extraction-local-2026-10-30.md | no | 1486 | 0 | 1 |
+| GET / (served over HTTP) | yes | 1326 | 0 | 0 |
+| GET /app.bundle.js (served over HTTP) | yes | 2724 | 0 | 0 |
+| GET /app.bundle.js.map (served over HTTP) | yes | 2775 | 0 | 0 |
+| GET /config.js (served over HTTP) | yes | 141 | 0 | 0 |
+| askLlm error responses (anonymous, validation, mapped provider 500) | yes | 381 | 0 | 0 |
+| logs/parse-server.err.2026-10-30 | no | 105247 | 0 | 0 |
+| logs/parse-server.info.2026-10-30 | no | 115645 | 0 | 0 |
+| docs/evidence/extraction-local-2026-10-30.md | no | 1924 | 0 | 1 |
 | docs/evidence/latency-overhead-local-2026-10-30.csv | no | 3095 | 0 | 0 |
 | docs/evidence/latency-overhead-local-2026-10-30.md | no | 1325 | 0 | 0 |
 | docs/evidence/matrix-local-2026-10-30.md | no | 9108 | 0 | 1 |
@@ -23,7 +27,7 @@ Hits are classified `synthetic-known` (the committed canary/placeholder, present
 | docs/evidence/streaming-h1-local-2026-10-30.md | no | 1317 | 0 | 0 |
 | docs/evidence/tokens-cost-local-2026-10-30.csv | no | 606 | 0 | 0 |
 | docs/evidence/tokens-cost-local-2026-10-30.md | no | 685 | 0 | 0 |
-| git log -p --all (full repository history) | no | 0 | 0 | 0 |
+| git log -p --all (full repository history) | no | 577980 | synthetic-known: sk-ant-✂…✂ANARY- (20 chars); synthetic-known: sk-ant-✂…✂0000AA (76 chars); synthetic-known: sk-ant-✂…✂0000AA (76 chars); synthetic-known: sk-ant-✂…✂ANARY- (20 chars) | 17 |
 
 **Shipped surfaces clean (no key material at all): YES**
 **UNKNOWN (potentially real) keys anywhere: none**
