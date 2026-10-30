@@ -1,0 +1,29 @@
+{
+  "name": "llm-proxy-lab",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Companion lab for the Back4app blog post 'How to Call an LLM API Without Exposing Your API Key': one Cloud function (askLlm) fronts the provider, the key never ships to the client, and every claim is reproduced by a test or a measurement script. Phase A runs everything against a deterministic local provider simulator — no real LLM provider is called.",
+  "license": "MIT",
+  "author": "Back4app Engineering",
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "dev:server": "node scripts/dev-server.mjs",
+    "simulator": "node scripts/simulator.mjs",
+    "setup": "node scripts/setup.mjs",
+    "build:client": "node scripts/build-client.mjs",
+    "inspect:surfaces": "node scripts/inspect-surfaces.mjs",
+    "measure:overhead": "node scripts/measure-overhead.mjs",
+    "measure:streaming": "node scripts/measure-streaming.mjs",
+    "measure:tokens-cost": "node scripts/measure-tokens-cost.mjs",
+    "pretest": "node scripts/evidence.mjs --reset",
+    "test": "node --test --test-concurrency=1 'test/*.test.mjs'",
+    "posttest": "node scripts/evidence.mjs"
+  },
+  "devDependencies": {
+    "express": "^5.1.0",
+    "parse-server": "^7.5.4"
+  }
+}

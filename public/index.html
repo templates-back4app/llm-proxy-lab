@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ACME Notes — LLM proxy lab</title>
+  <style>
+    :root { color-scheme: light dark; font-family: system-ui, sans-serif; }
+    body { max-width: 640px; margin: 2rem auto; padding: 0 16px; }
+    textarea { width: 100%; min-height: 80px; }
+    pre { white-space: pre-wrap; background: rgba(127,127,127,.12); padding: .75rem; border-radius: 6px; }
+    .muted { opacity: .7; font-size: .9em; }
+  </style>
+</head>
+<body>
+  <h1>ACME Notes</h1>
+  <p class="muted">Lab client for the Back4app blog post <em>How to Call an LLM API Without Exposing Your API
+  Key</em>. Everything this page ships is everything an attacker gets — that is the point.</p>
+  <div id="auth">
+    <input id="username" placeholder="username" autocomplete="username">
+    <input id="password" type="password" placeholder="password" autocomplete="current-password">
+    <button id="login">Sign in</button>
+  </div>
+  <div id="ask" hidden>
+    <textarea id="prompt" placeholder="Summarize my note…"></textarea>
+    <button id="send">Ask</button>
+    <pre id="answer"></pre>
+    <p class="muted" id="budget"></p>
+  </div>
+  <script src="config.js"></script>
+  <script src="app.bundle.js"></script>
+</body>
+</html>
